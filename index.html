@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="css/styles.css" />
+    <meta charset="UTF-8" />
+    <meta="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="scoreboard"> 
+          <div class="title">
+              <img src='/assets/title.png' />
+          </div>
+          <div class="score">
+              <p>Score</p>
+              <h1> 0 </h1>
+          </div>
+      </div>
+      <div class="hands">
+            <div class="triangle">
+                <img src='/assets/triangle.png'/>
+            </div>
+            <div class="top">
+                <img src="/assets/Paper.png" onclick="pickHand('Paper')"/>
+                <img src="/assets/Scissors.png" onclick="pickHand('Scissors')"/>
+            </div>
+            <div class="bottom">
+                <img src="/assets/Rock.png" onclick="pickHand('Rock')"/>                        
+            </div>
+      </div>
+      <div class="contest">       
+        <div class="userhand">
+            <h1> You Picked</h1>
+            <img id='Paper' src='/assets/Paper.png' /> 
+            <img id='Rock' src='/assets/Rock.png' /> 
+            <img id='Scissors' src='/assets/Scissors.png' />
+        </div>
+        <div class="referee"> <h1>You win or you lose</h1> </div>
+        <div class="computerhand" onclick="computerHand()">
+            <h1>The House Picked</h1>           
+        </div>       
+      </div>        
+    </div>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
