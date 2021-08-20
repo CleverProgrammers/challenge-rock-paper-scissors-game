@@ -35,8 +35,6 @@ HTML elements
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
-  /* margin-left: auto;
-  margin-right: auto; */
 }
 
 .title {
@@ -84,6 +82,10 @@ HTML elements
   flex-direction: column;
   z-index: 0;
 }
+.hands img {
+  width: 200px;
+  height: 200px;
+}
 
 .triangle {
   position: absolute;
@@ -109,19 +111,29 @@ HTML elements
   opacity: 0;
   margin-top: -450px;
   z-index: 100;
-  transition: opacity ease-in 0.2s, visibility linear 0.5s;
-  width: 800px;
+  width: 900px;
   display: flex;
+  justify-content: space-between;
+}
+
+.contest img {
+  width: 275px;
+  height: 275px;
 }
 
 .contest h1 {
   color: white;
-  font-size: 24px;
-  margin: 30px;
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
   font-family: "Barlow Condensed", sans-serif;
 }
 
 .userhand {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
   padding-right: 20px;
 }
 
@@ -146,11 +158,32 @@ HTML elements
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 180px;
-  flex: 1;
 }
 
 .referee h1 {
   font-size: 45px;
   color: white;
+}
+
+.computerhand {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+#cpPaper {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+#cpRock {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+#cpScissors {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
 }

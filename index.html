@@ -26,11 +26,11 @@
                 <img src='/assets/triangle.png'/>
             </div>
             <div class="top">
-                <img src="/assets/Paper.png" onclick="pickHand('Paper')"/>
-                <img src="/assets/Scissors.png" onclick="pickHand('Scissors')"/>
+                <img src="/assets/Paper.png" onclick="pickUserHand('Paper')"/>
+                <img src="/assets/Scissors.png" onclick="pickUserHand('Scissors')"/>
             </div>
             <div class="bottom">
-                <img src="/assets/Rock.png" onclick="pickHand('Rock')"/>                        
+                <img src="/assets/Rock.png" onclick="pickUserHand('Rock')"/>                        
             </div>
       </div>
       <div class="contest">       
@@ -40,9 +40,14 @@
             <img id='Rock' src='/assets/Rock.png' /> 
             <img id='Scissors' src='/assets/Scissors.png' />
         </div>
-        <div class="referee"> <h1>You win or you lose</h1> </div>
-        <div class="computerhand" onclick="computerHand()">
-            <h1>The House Picked</h1>           
+        <div class="referee"> 
+            <div class="win"><h1> You win! </h1></div>
+            <div class="lose"><h1> You win! </h1></div>
+        <div class="computerhand">
+            <h1>The House Picked</h1>      
+            <img id='cpPaper' src='/assets/Paper.png' /> 
+            <img id='cpRock' src='/assets/Rock.png' /> 
+            <img id='cpScissors' src='/assets/Scissors.png' />     
         </div>       
       </div>        
     </div>
