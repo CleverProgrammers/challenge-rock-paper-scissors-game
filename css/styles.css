@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
 /* 
 -------------------------------------------------------------------------------
 HTML elements 
@@ -62,7 +66,6 @@ HTML elements
 
 .score p {
   color: #2a45c2;
-  font-family: Barlow Semi Condensed;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -72,6 +75,9 @@ HTML elements
 }
 
 .hands {
+  background-image: url("../assets/triangle.png");
+  background-position: center;
+  background-repeat: no-repeat;
   visibility: visible;
   opacity: 1;
   position: relative;
@@ -79,41 +85,37 @@ HTML elements
   height: 430px;
   margin-top: 100px;
   display: flex;
-  flex-direction: column;
   z-index: 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .hands img {
   width: 200px;
   height: 200px;
+  display: block;
 }
 
-.triangle {
-  position: absolute;
-  margin-top: 20%;
-  margin-right: 20%;
-  margin-left: 20%;
-  margin-bottom: 20%;
-  z-index: -1;
+.hands .paper {
+  margin-right: 20px;
 }
 
-.top {
-  display: flex;
-  justify-content: space-between;
+.hands .scissors {
+  margin-left: 20px;
 }
 
-.bottom {
-  display: flex;
-  justify-content: center;
+.hands .hand {
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.hands .hand:hover {
+  transform: translate3d(0px, -8px, 0px);
 }
 
 .contest {
-  visibility: hidden;
-  opacity: 0;
-  margin-top: -450px;
-  z-index: 100;
+  display: none;
+  margin-top: 50px;
   width: 900px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .contest img {
@@ -121,41 +123,40 @@ HTML elements
   height: 275px;
 }
 
+.contest > div {
+  flex: 1;
+}
+
 .contest h1 {
   color: white;
-  font-size: 36px;
+  font-size: 20px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;
-  font-family: "Barlow Condensed", sans-serif;
 }
 
-.userhand {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-  padding-right: 20px;
+.contest .newGame {
+  color: hsl(229, 25%, 31%);
+  background-color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
 }
 
-#Paper {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
+.newGame:hover {
+  background: rgb(218, 218, 218);
+  transform: translate3d(0px, -2px, 0px);
 }
 
-#Rock {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-}
-#Scissors {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
+.contest .handImageContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .referee {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -166,24 +167,6 @@ HTML elements
 }
 
 .computerhand {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-}
-
-#cpPaper {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-}
-
-#cpRock {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
-}
-#cpScissors {
-  visibility: hidden;
-  opacity: 0;
-  display: none;
+  display: flex;
+  flex-direction: column;
 }

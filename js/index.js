@@ -1,78 +1,80 @@
+const handOptions = {
+  "rock": "/assets/Rock.png",
+  "paper": "/assets/Paper.png",
+  "scissors": "/assets/Scissors.png"
+}
+
+let SCORE = 0;
+
 const pickUserHand = (hand) => {
+  let hands = document.querySelector(".hands");
+  hands.style.display = "none";
+
   let contest = document.querySelector(".contest");
-  contest.style.visibility = "visible";
-  contest.style.opacity = 1;
   contest.style.display = "flex";
 
-  let userHand = document.querySelector(".userhand");
-  userHand.style.visibility = "visible";
-  userHand.style.opacity = 1;
-  userHand.style.display = "flex";
-  userHand.style.flexDirection = "column";
-
-  let imageHandUser = document.getElementById(hand);
-  imageHandUser.style.visibility = "visible";
-  imageHandUser.style.opacity = 1;
-  imageHandUser.style.display = "flex";
-  imageHandUser.style.flexDirection = "column";
-
-  let hands = document.querySelector(".hands");
-  hands.style.visibility = "hidden";
-  hands.style.opacity = 0;
-  hands.style.zIndex = -10;
+  // set user Image
+  document.getElementById("userPickImage").src = handOptions[hand];
 
   pickComputerHand(hand);
 };
 
 const pickComputerHand = (hand) => {
-  setTimeout(function () {
-    let hands = ["cpPaper", "cpRock", "cpScissors"];
+    let hands = ["rock", "paper", "scissors"];
     let cpHand = hands[Math.floor(Math.random() * hands.length)];
-
-    let computerHand = document.querySelector(".computerhand");
-    computerHand.style.visibility = "visible";
-    computerHand.style.opacity = 1;
-    computerHand.style.display = "flex";
-    computerHand.style.flexDirection = "column";
-
-    let imageHandCp = document.getElementById(cpHand);
-    imageHandCp.style.visibility = "visible";
-    imageHandCp.style.opacity = 1;
-    imageHandCp.style.display = "flex";
-    imageHandCp.style.flexDirection = "column";
-  }, 1000);
-
-  referee(hand, cpHand);
+    
+    // set computer image 
+    document.getElementById("computerPickImage").src = handOptions[cpHand]
+    
+    referee(hand, cpHand);
 };
 
 const referee = (userHand, cpHand) => {
-  if (userHand == "Paper" && cpHand == "cpScissors") {
-    setDecision("You Lose!");
+  if (userHand == "paper" && cpHand == "scissors") {
+    setDecision("YOU LOSE!");
   }
-  if (userHand == "Paper" && cpHand == "cpRock") {
-    setDecision("You Win!");
-    dispatch(setScore(1));
+  if (userHand == "paper" && cpHand == "rock") {
+    setDecision("YOU WIN!");
+    setScore(SCORE + 1);
   }
-  if (userHand == "Paper" && cpHand == "cpPaper") {
+  if (userHand == "paper" && cpHand == "paper") {
     setDecision("It's a tie!");
   }
-  if (userHand == "Rock" && cpHand == "cpScissors") {
-    setDecision("You Win!");
-    dispatch(setScore(1));
+  if (userHand == "rock" && cpHand == "scissors") {
+    setDecision("YOU WIN!");
+    setScore(SCORE + 1);
   }
-  if (userHand == "Rock" && cpHand == "cpPaper") {
-    setDecision("You Lose!");
+  if (userHand == "rock" && cpHand == "paper") {
+    setDecision("YOU LOSE!");
   }
-  if (userHand == "Rock" && cpHand == "cpRock") {
+  if (userHand == "rock" && cpHand == "rock") {
     setDecision("It's a tie!");
   }
-  if (userHand == "Scissors" && cpHand == "cpScissors") {
+  if (userHand == "scissors" && cpHand == "scissors") {
     setDecision("It's a tie!");
   }
-  if (userHand == "Scissors" && cpHand == "cpRock") {
-    setDecision("You Lose!");
+  if (userHand == "scissors" && cpHand == "rock") {
+    setDecision("YOU LOSE!");
   }
-  if (userHand == "Scissors" && cpHand == "cpPaper") {
-    setDecision("You Win!");
+  if (userHand == "scissors" && cpHand == "paper") {
+    setDecision("YOU WIN!");
+    setScore(SCORE + 1);
   }
 };
+
+const restartGame = () => {
+  let contest = document.querySelector(".contest");
+  contest.style.display = "none";
+
+  let hands = document.querySelector(".hands");
+  hands.style.display = "flex";
+}
+
+const setDecision = (decision) => {
+  document.querySelector(".decision h1").innerText = decision;
+}
+
+const setScore = (newScore) => {
+  SCORE = newScore;
+  document.querySelector(".score h1").innerText = newScore;
+}
